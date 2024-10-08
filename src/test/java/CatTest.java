@@ -17,7 +17,7 @@ public class CatTest {
     @Spy
     private Feline feline = new Feline();
 
-    private final List<String> expectedFoodList = Arrays.asList("Животные", "Птицы", "Рыба");
+    private final List<String> expectedFoodList = Arrays.asList("Животные", "Птицы", "Рыбы");
 
     @Test
     public void getSoundReturnsValidString() {
