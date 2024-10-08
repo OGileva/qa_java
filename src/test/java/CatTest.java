@@ -17,6 +17,8 @@ public class CatTest {
     @Spy
     private Feline feline = new Feline();
 
+    private final List<String> expectedFoodList = Arrays.asList("Животные", "Птицы", "Рыба");
+
     @Test
     public void getSoundReturnsValidString() {
         Cat cat = new Cat(feline);
@@ -28,9 +30,8 @@ public class CatTest {
     @Test
     public void getFood() throws Exception {
         Cat cat = new Cat(feline);
-        Mockito.when(feline.getFood("Хищник")).thenReturn(Arrays.asList("Животные", "Птицы", "Рыба"));
-        List<String> expectedResult = Arrays.asList("Животные", "Птицы", "Рыба");
+        Mockito.when(feline.getFood("Хищник")).thenReturn(expectedFoodList);
         List<String> actualResult = cat.getFood();
-        assertEquals("getFood should return valid list", expectedResult, actualResult);
+        assertEquals("getFood should return valid list", expectedFoodList, actualResult);
     }
 }
